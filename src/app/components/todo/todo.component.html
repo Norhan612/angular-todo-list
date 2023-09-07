@@ -1,0 +1,35 @@
+<div class="todos">
+    <div class="container mt-5">
+        <input 
+              type="text" 
+              name="inputTodo" 
+              placeholder="Enter Your Todo" 
+              class="todo-input" 
+              [(ngModel)]="inputTodo"
+        />
+       
+        <button class="btn btn-success btn mt-3" (click)="addTodo()">Add Task</button>
+    </div>
+</div>
+
+<!--
+<div class="todos container mt-5" *ngFor="let todo of todos; let i=index;" class="todo{{ (todo.completed ? 'done':'')}}">
+  
+        <div class="id">{{ i }}</div>
+        <div class="content">{{ todo.content }}</div>
+        <button  (click)="toggleDone(i)" class=" mx-3 btn btn-success pe-3" style="float: right;" >Complete</button>
+        <button class="btn btn-danger mx-3 delete" style="float: right;" (click)="deleteTodo(i)">Remove</button>
+    
+</div>
+-->
+
+<div class="container mt-5 ">
+    <ul class="list-group ">
+        <li   class="list-group-item fs-1 " class="{{(todo.completed)?'done':''}}" *ngFor="let todo of todos let i = index">
+          {{todo.content}}
+          <button  (click)="toggleDone(i)" class=" mx-3 btn btn-warning pe-3" style="float: right;" >Complete</button>
+          <button class=" btn btn-danger mx-3" style="float: right;" (click)="deleteTodo(i)">Remove</button>
+    
+        </li>
+      </ul> 
+    </div>
